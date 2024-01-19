@@ -1,0 +1,23 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedListStack:
+    def __init__(self):
+        self.head = None
+
+    def is_empty(self):
+        return self.head is None
+
+    def push(self, item):
+        new_node = Node(item)
+        new_node.next = self.head
+        self.head = new_node
+
+    def pop(self):
+        if self.is_empty():
+            raise Exception("Stack underflow")
+        item = self.head.data
+        self.head = self.head.next
+        return item
